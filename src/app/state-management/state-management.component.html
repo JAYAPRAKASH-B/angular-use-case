@@ -1,0 +1,15 @@
+<button mat-button (click)="navigate('home')">Back</button>
+<div *ngIf="loading$ | async" class="loading-container">
+    <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+    <span>Loading...</span>
+  </div>
+  
+  <mat-list>
+    <mat-list-item *ngFor="let todo of todos$ | async">
+      <div mat-line>{{ todo.title }}</div>
+      <mat-checkbox
+        [checked]="todo.completed"
+        (change)="toggleTodo(todo.id)">
+      </mat-checkbox>
+    </mat-list-item>
+  </mat-list>

@@ -1,0 +1,38 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Enter your first name">
+        <mat-error *ngIf="form.get('firstName')?.hasError('required')">
+          First Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Enter your last name">
+        <mat-error *ngIf="form.get('lastName')?.hasError('required')">
+          Last Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter your email">
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Please enter a valid email.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-checkbox formControlName="agreeToTerms">I agree to the terms and conditions</mat-checkbox>
+      <mat-error *ngIf="form.get('agreeToTerms')?.hasError('requiredTrue')">
+        You must agree to the terms and conditions.
+      </mat-error>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+  <button mat-button (click)="navigate('home')">Back</button>

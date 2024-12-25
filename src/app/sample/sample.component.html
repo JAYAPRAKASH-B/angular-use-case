@@ -1,0 +1,9 @@
+<p>{{ 'This is a long sentence that needs truncation.' | truncate:10 }}</p>
+<p>{{ 1234567 | formatnumber:'USD' }}</p>
+<p appHighlight="lightblue">Hover over me to see the highlight effect!</p>
+<p *appShowoff="true">This text will be shown.</p>
+<p *appShowoff="false">This text will not be shown.</p>
+<br/>
+<h3>{{message}}</h3>
+<h3>{{subjectmessage}}</h3>
+<button mat-button (click)="navigate('home')">Back</button>
